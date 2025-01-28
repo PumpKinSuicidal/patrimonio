@@ -115,18 +115,21 @@ class Patrimonio(QWidget):
     def cadastrar(self):
         # Criar uma variavel que fará referencia ao arquivo de texto
         # encoding="utf-8" pra colocar acentuação
-         arquivo = open("clientes.txt","+a", encoding="utf-8")
-         arquivo.write(f"ID: {self.edit_id.text()}\n")
-         arquivo.write(f"Número de Serie: {self.edit_serie.text()}\n")
-         arquivo.write(f"Nome do Patrimônio: {self.edit_nome.text()}\n")
-         arquivo.write(f"Tipo do Patromônio: {self.edit_tipo.text()}\n")
-         arquivo.write(f"Descrção: {self.edit_desc.text()}\n")
-         arquivo.write(f"Localização: {self.edit_loc.text()}\n")
-         arquivo.write(f"Data de Fabricação: {self.edit_fab.text()}\n")
-         arquivo.write(f"Data de aquisição: {self.edit_aqui.text()}\n")
-         arquivo.write("------------------------------------------\n")
-         arquivo.close()
-         QMessageBox.information(self, "Salvo", "Os dados do patrimônio foram salvos.")
+        if (self.edit_id.text()=="" or self.edit_serie.text()=="" or self.edit_nome.text()=="" or self.edit_tipo.text()=="" or self.edit_desc.text()=="" or self.edit_loc.text()=="" or self.edit_fab.text()=="" or self.edit_aqui.text()==""):
+            QMessageBox.critical(self,"Erro!!!", "Você deve prencher todos os campos!")
+        else:
+            arquivo = open("clientes.txt","+a", encoding="utf-8")
+            arquivo.write(f"ID: {self.edit_id.text()}\n")
+            arquivo.write(f"Número de Serie: {self.edit_serie.text()}\n")
+            arquivo.write(f"Nome do Patrimônio: {self.edit_nome.text()}\n")
+            arquivo.write(f"Tipo do Patromônio: {self.edit_tipo.text()}\n")
+            arquivo.write(f"Descrção: {self.edit_desc.text()}\n")
+            arquivo.write(f"Localização: {self.edit_loc.text()}\n")
+            arquivo.write(f"Data de Fabricação: {self.edit_fab.text()}\n")
+            arquivo.write(f"Data de aquisição: {self.edit_aqui.text()}\n")
+            arquivo.write("------------------------------------------\n")
+            arquivo.close()
+            QMessageBox.information(self, "Salvo", "Os dados do patrimônio foram salvos.")
 
 # app = QApplication(sys.argv)
 # # Instncia da classe cadastro cliente para iniciar a janela
