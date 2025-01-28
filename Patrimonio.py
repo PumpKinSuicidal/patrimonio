@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout;
 import sys
 
-class Patrimônio(QWidget):
+class Patrimonio(QWidget):
     def __init__(self): 
         super().__init__()
 
@@ -19,7 +19,7 @@ class Patrimônio(QWidget):
         self.edit_id.setStyleSheet("QlineEdit{font-size:12pt}")
 
         # Número de Série 
-        self.label_serie = QLabel("Número de Série :")
+        self.label_serie = QLabel("Número de Série:")
         self.label_serie.setStyleSheet("Qlabel.{Font-size:12pt}")
         # Line Edit
         self.edit_serie = QLineEdit()
@@ -114,22 +114,23 @@ class Patrimônio(QWidget):
 
     def cadastrar(self):
         # Criar uma variavel que fará referencia ao arquivo de texto
-         arquivo = open("clientes.txt","+a")
+        # encoding="utf-8" pra colocar acentuação
+         arquivo = open("clientes.txt","+a", encoding="utf-8")
          arquivo.write(f"ID: {self.edit_id.text()}\n")
-         arquivo.write(f"Numero de Serie : {self.edit_serie.text()}\n")
-         arquivo.write(f"Nome do Patrimonio: {self.edit_nome.text()}\n")
-         arquivo.write(f"Tipo do Patromonio: {self.edit_tipo.text()}\n")
-         arquivo.write(f"Descricao: {self.edit_desc.text()}\n")
-         arquivo.write(f"Localizacao: {self.edit_loc.text()}\n")
-         arquivo.write(f"Data de Fabricacao: {self.edit_fab.text()}\n")
-         arquivo.write(f"Data de aquisicao: {self.edit_aqui.text()}\n")
+         arquivo.write(f"Número de Serie: {self.edit_serie.text()}\n")
+         arquivo.write(f"Nome do Patrimônio: {self.edit_nome.text()}\n")
+         arquivo.write(f"Tipo do Patromônio: {self.edit_tipo.text()}\n")
+         arquivo.write(f"Descrção: {self.edit_desc.text()}\n")
+         arquivo.write(f"Localização: {self.edit_loc.text()}\n")
+         arquivo.write(f"Data de Fabricação: {self.edit_fab.text()}\n")
+         arquivo.write(f"Data de aquisição: {self.edit_aqui.text()}\n")
          arquivo.write("------------------------------------------\n")
          arquivo.close()
 
-app = QApplication(sys.argv)
-# Instncia da classe cadastro cliente para iniciar a janela
-tela = Patrimônio()
-# Exibir a tela durante a execução
-tela.show()
-# Ao clicar no botão fechar a tela deve fechar e sair da memória
-app.exec()
+# app = QApplication(sys.argv)
+# # Instncia da classe cadastro cliente para iniciar a janela
+# tela = Patrimonio()
+# # Exibir a tela durante a execução
+# tela.show()
+# # Ao clicar no botão fechar a tela deve fechar e sair da memória
+# app.exec()
